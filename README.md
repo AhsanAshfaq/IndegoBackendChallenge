@@ -12,24 +12,34 @@ cd IndegoBackendChallenge
 
 npm install
 ```
-- Start your mongoDB server (you'll probably want another command prompt)
-```
-mongod
-```
-- Build project
+###  Build project
 ```
 npm build
 ```
-- run the project
+### run the project
 ```
 npm start
 ```
 
-- Navigate to `http://localhost:8001`
+### Navigate to `http://localhost:8001`
 
 
-- To see swagger Api Docs Go to 
+### To see swagger Api Docs Go to 
 
 ```
 http://localhost:8001/api/v1/api-docs
+```
+
+### Sample Endpoints for Stations API
+
+- Get All Stations 
+
+```
+http://localhost:8001/api/v1/stations?at=2021-03-16T23:00:02
+```
+
+- Get Station By Id 
+
+```
+http://localhost:8001/api/v1/stations/3211?at=2021-03-16T23:00:02
 ```
