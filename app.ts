@@ -20,7 +20,7 @@ app.use(express.urlencoded());
 app.use('/api/v1',router);
 
 // Adding swagger configurations
-app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 //connect to MongoDb
 connectDatabase(); 
