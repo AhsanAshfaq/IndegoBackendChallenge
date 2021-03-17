@@ -6,7 +6,7 @@
 ```
 git clone https://github.com/AhsanAshfaq/IndegoBackendChallenge.git
 ```
-- Install dependencies
+## Install dependencies
 ```
 cd IndegoBackendChallenge
 
