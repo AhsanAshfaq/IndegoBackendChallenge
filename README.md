@@ -21,7 +21,7 @@ npm build
 npm start
 ```
 
-### Navigate to `http://localhost:8001`
+- Navigate to `http://localhost:8001`
 
 
 ### To see swagger Api Docs Go to 
