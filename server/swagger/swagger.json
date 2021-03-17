@@ -1,0 +1,501 @@
+{
+    "swagger":"2.0",
+    "info":{
+       "version":"1.0.0",
+       "title":"Indego Bike Service API",
+       "description":"Indego is Philadelphia's bike-sharing program, with many bike stations in the city.",
+       "contact":{
+          "name":"Ahsan",
+          "url":"https://github.com/AhsanAshfaq",
+          "email":"ahsanattari.12@gmail.com"
+       }
+    },
+    "servers":[
+       {
+          "url":"http://localhost:8001",
+          "description":"local_server"
+       }
+    ],
+    "paths":{
+       "/api/v1/stations/{kioskId}?at=2021-03-16T23:00:02":{
+          "get":{
+             "description":"Get Station Snapshot at specified time",
+             "operationId":"GetStationById",
+             "responses":{
+                "200":{
+                   "description":"success response in case of time and kioskId matching the database records",
+                   "content":{
+                      "application/json":{
+                         "schema":{
+                            "type":"object",
+                            "properties":{
+                               "at":{
+                                  "type":"date"
+                               },
+                               "station":{
+                                  "type":"object",
+                                  "schema":{
+                                    "$ref":"#/components/schemas/Building"
+                                  }
+                               },
+                               "weather":{
+                                   "type" : "string"
+                               }
+                            },
+                            "example":{
+                                "at": "2021-03-16T23:00:02",
+                                "station":{
+                                    "coordinates": [
+                                        -75.1706,
+                                        39.97172
+                                    ],
+                                    "bikes": [
+                                        {
+                                            "dockNumber": 2,
+                                            "isElectric": false,
+                                            "isAvailable": true,
+                                            "battery": null
+                                        },
+                                        {
+                                            "dockNumber": 15,
+                                            "isElectric": false,
+                                            "isAvailable": true,
+                                            "battery": null
+                                        },
+                                        {
+                                            "dockNumber": 16,
+                                            "isElectric": false,
+                                            "isAvailable": true,
+                                            "battery": null
+                                        },
+                                        {
+                                            "dockNumber": 20,
+                                            "isElectric": false,
+                                            "isAvailable": true,
+                                            "battery": null
+                                        },
+                                        {
+                                            "dockNumber": 21,
+                                            "isElectric": false,
+                                            "isAvailable": false,
+                                            "battery": null
+                                        },
+                                        {
+                                            "dockNumber": 22,
+                                            "isElectric": false,
+                                            "isAvailable": true,
+                                            "battery": null
+                                        },
+                                        {
+                                            "dockNumber": 23,
+                                            "isElectric": false,
+                                            "isAvailable": true,
+                                            "battery": null
+                                        },
+                                        {
+                                            "dockNumber": 24,
+                                            "isElectric": false,
+                                            "isAvailable": true,
+                                            "battery": null
+                                        },
+                                        {
+                                            "dockNumber": 26,
+                                            "isElectric": false,
+                                            "isAvailable": true,
+                                            "battery": null
+                                        }
+                                    ],
+                                    "_id": "605130f79a6f944a64179f8c",
+                                    "name": "Corinthian & Poplar",
+                                    "totalDocks": 30,
+                                    "docksAvailable": 21,
+                                    "bikesAvailable": 8,
+                                    "classicBikesAvailable": 8,
+                                    "smartBikesAvailable": 0,
+                                    "electricBikesAvailable": 0,
+                                    "rewardBikesAvailable": 8,
+                                    "rewardDocksAvailable": 22,
+                                    "kioskStatus": "FullService",
+                                    "kioskPublicStatus": "Active",
+                                    "kioskConnectionStatus": "Active",
+                                    "kioskType": 1,
+                                    "addressStreet": "777 Corinthian Ave.",
+                                    "addressCity": "Philadelphia",
+                                    "addressState": "PA",
+                                    "addressZipCode": "19130",
+                                    "closeTime": null,
+                                    "eventEnd": null,
+                                    "eventStart": null,
+                                    "isEventBased": false,
+                                    "isVirtual": false,
+                                    "kioskId": 3211,
+                                    "notes": null,
+                                    "openTime": null,
+                                    "publicText": "",
+                                    "timeZone": null,
+                                    "trikesAvailable": 0,
+                                    "latitude": 39.97172,
+                                    "longitude": -75.1706,
+                                    "weather": "The weather at 3/17/2021, 3:28:00 AM in Philadelphia is about 4 degree centigrades.",
+                                    "createdAt": "2021-03-16T22:28:07.869Z",
+                                    "updatedAt": "2021-03-16T22:28:07.869Z",
+                                    "__v": 0
+                                },
+                                "weather": "The weather at 3/17/2021, 3:28:00 AM in Philadelphia is about 4 degree centigrades."
+                            }                         
+                         }
+                      }
+                   }
+                },
+                "204":{
+                   "description":"No Records Found",
+                   "content":{
+                      "application/json":{
+                         "schema":{
+                            "type":"object",
+                            "properties":{
+                               "at":{
+                                  "type":"date"
+                               },
+                               "station":{
+                                  "type":"object",
+                                  "schema":{
+                                    "$ref":"#/components/schemas/Building"
+                                  }
+                               },
+                               "weather":{
+                                   "type" : "string"
+                               }
+                            },
+                            "example":{
+                               "code":404,
+                               "msg":"errror"
+                            }
+                         }
+                      }
+                   }
+                }
+             },
+             "parameters":[
+                {
+                   "name":"kioskId",
+                   "in":"path",
+                   "type":"number",
+                   "required":true,
+                   "description":"This kioskId belongs to each building in the city"
+                },
+                {
+                   "name":"at",
+                   "in":"query",
+                   "required":true,
+                   "description":"This is the datetime stamp at which user is looking the records for.",
+                   "schema":{
+                      "type":"string"
+                   }
+                }
+             ],
+             "tags":[
+                "Stations"
+             ]
+          }
+       },
+       "/api/v1/stations/?at=2021-03-16T23:00:02":{
+          "get":{
+             "description":"Get All Stations Snapshot at specified time",
+             "operationId":"GetStations",
+             "responses":{
+                "200":{
+                   "description":"success response in case of time matching the database records",
+                   "content":{
+                      "application/json":{
+                         "schema":{
+                            "type":"object",
+                            "properties":{
+                               "at":{
+                                  "type":"date"
+                               },
+                               "station":{
+                                  "type":"object",
+                                  "schema":{
+                                    "$ref":"#/components/schemas/Building"
+                                  }
+                               },
+                               "weather":{
+                                   "type" : "string"
+                               }
+                            },
+                            "example":{
+                                "at": "2021-03-16T23:00:02",
+                                "station":{
+                                    "coordinates": [
+                                        -75.1706,
+                                        39.97172
+                                    ],
+                                    "bikes": [
+                                        {
+                                            "dockNumber": 2,
+                                            "isElectric": false,
+                                            "isAvailable": true,
+                                            "battery": null
+                                        },
+                                        {
+                                            "dockNumber": 15,
+                                            "isElectric": false,
+                                            "isAvailable": true,
+                                            "battery": null
+                                        },
+                                        {
+                                            "dockNumber": 16,
+                                            "isElectric": false,
+                                            "isAvailable": true,
+                                            "battery": null
+                                        },
+                                        {
+                                            "dockNumber": 20,
+                                            "isElectric": false,
+                                            "isAvailable": true,
+                                            "battery": null
+                                        },
+                                        {
+                                            "dockNumber": 21,
+                                            "isElectric": false,
+                                            "isAvailable": false,
+                                            "battery": null
+                                        },
+                                        {
+                                            "dockNumber": 22,
+                                            "isElectric": false,
+                                            "isAvailable": true,
+                                            "battery": null
+                                        },
+                                        {
+                                            "dockNumber": 23,
+                                            "isElectric": false,
+                                            "isAvailable": true,
+                                            "battery": null
+                                        },
+                                        {
+                                            "dockNumber": 24,
+                                            "isElectric": false,
+                                            "isAvailable": true,
+                                            "battery": null
+                                        },
+                                        {
+                                            "dockNumber": 26,
+                                            "isElectric": false,
+                                            "isAvailable": true,
+                                            "battery": null
+                                        }
+                                    ],
+                                    "_id": "605130f79a6f944a64179f8c",
+                                    "name": "Corinthian & Poplar",
+                                    "totalDocks": 30,
+                                    "docksAvailable": 21,
+                                    "bikesAvailable": 8,
+                                    "classicBikesAvailable": 8,
+                                    "smartBikesAvailable": 0,
+                                    "electricBikesAvailable": 0,
+                                    "rewardBikesAvailable": 8,
+                                    "rewardDocksAvailable": 22,
+                                    "kioskStatus": "FullService",
+                                    "kioskPublicStatus": "Active",
+                                    "kioskConnectionStatus": "Active",
+                                    "kioskType": 1,
+                                    "addressStreet": "777 Corinthian Ave.",
+                                    "addressCity": "Philadelphia",
+                                    "addressState": "PA",
+                                    "addressZipCode": "19130",
+                                    "closeTime": null,
+                                    "eventEnd": null,
+                                    "eventStart": null,
+                                    "isEventBased": false,
+                                    "isVirtual": false,
+                                    "kioskId": 3211,
+                                    "notes": null,
+                                    "openTime": null,
+                                    "publicText": "",
+                                    "timeZone": null,
+                                    "trikesAvailable": 0,
+                                    "latitude": 39.97172,
+                                    "longitude": -75.1706,
+                                    "weather": "The weather at 3/17/2021, 3:28:00 AM in Philadelphia is about 4 degree centigrades.",
+                                    "createdAt": "2021-03-16T22:28:07.869Z",
+                                    "updatedAt": "2021-03-16T22:28:07.869Z",
+                                    "__v": 0
+                                },
+                                "weather": "The weather at 3/17/2021, 3:28:00 AM in Philadelphia is about 4 degree centigrades."
+                            }                         
+                         }
+                      }
+                   }
+                },
+                "204":{
+                   "description":"No Records Found",
+                   "content":{
+                      "application/json":{
+                         "schema":{
+                            "type":"object",
+                            "properties":{
+                               "at":{
+                                  "type":"date"
+                               },
+                               "station":{
+                                  "type":"object",
+                                  "schema":{
+                                    "$ref":"#/components/schemas/Building"
+                                  }
+                               },
+                               "weather":{
+                                   "type" : "string"
+                               }
+                            },
+                            "example":{
+                               "code":404,
+                               "msg":"errror"
+                            }
+                         }
+                      }
+                   }
+                }
+             },
+             "parameters":[
+                {
+                   "name":"at",
+                   "in":"query",
+                   "required":true,
+                   "description":"This is the datetime stamp at which user is looking the records for.",
+                   "schema":{
+                      "type":"string"
+                   }
+                }
+             ],
+             "tags":[
+                "Stations"
+             ]
+          }
+       }
+    },
+    "components":{
+       "schemas":{
+          "Building":{
+             "type":"object",
+             "properties":{
+                "name":{
+                   "type":"string"
+                },
+                "totalDocks":{
+                   "type":"number"
+                },
+                "docksAvailable":{
+                   "type":"number"
+                },
+                "bikesAvailable":{
+                   "type":"number"
+                },
+                "classicBikesAvailable":{
+                   "type":"number"
+                },
+                "smartBikesAvailable":{
+                   "type":"number"
+                },
+                "electricBikesAvailable":{
+                   "type":"number"
+                },
+                "rewardBikesAvailable":{
+                   "type":"number"
+                },
+                "kioskStatus":{
+                   "type":"string"
+                },
+                "kioskPublicStatus":{
+                    "type":"string"
+                 },
+                 "kioskConnectionStatus":{
+                    "type":"string"
+                 },
+                 "kioskType":{
+                    "type":"number"
+                 },
+                 "addressStreet":{
+                    "type":"string"
+                 },
+                 "addressCity":{
+                    "type":"string"
+                 },
+                 "addressState":{
+                    "type":"string"
+                 },
+                 "addressZipCode":{
+                    "type":"string"
+                 },
+                 "closeTime":{
+                    "type":"date"
+                 },
+                 "eventEnd":{
+                    "type":"date"
+                 },
+                 "eventStart":{
+                    "type":"date"
+                 },
+                 "isEventBased":{
+                    "type":"boolean"
+                 },
+                 "isVirtual":{
+                    "type":"boolean"
+                 },
+                 "kioskId":{
+                    "type":"number"
+                 },
+                 "notes":{
+                    "type":"string"
+                 },
+                 "publicText":{
+                    "type":"string"
+                 },
+                 "timeZone":{
+                    "type":"string"
+                 },
+                 "trikesAvailable":{
+                    "type":"number"
+                 },
+                 "latitude":{
+                    "type":"number"
+                 },
+                 "longitude":{
+                    "type":"number"
+                 },
+                 "coordinates":{
+                    "type":"number"
+                 },
+                 "weather":{
+                    "type":"string"
+                 },
+                "bikes":{
+                   "type":"array",
+                   "items":{
+                      "$ref":"#/components/schemas/Bike"
+                   }
+                }
+             },
+             "example":{ }
+          },
+          "Bike" :{
+              "type": "object",
+              "properties" : {
+                "dockNumber":{
+                    "type":"number"
+                 },
+                 "isAvailable":{
+                    "type":"boolean"
+                 },
+                 "isElectric":{
+                    "type":"boolean"
+                 },
+                 "battery":{
+                    "type":"number"
+                 }
+              }
+          }
+       }
+    }
+ }

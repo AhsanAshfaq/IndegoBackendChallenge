@@ -1,0 +1,36 @@
+import { Document } from "mongoose"
+import {IBike} from "./bike"
+
+export interface IBuilding extends Document {
+  name : string,
+  totalDocks : number,
+  docksAvailable : number,
+  bikesAvailable : number,
+  classicBikesAvailable : number,
+  smartBikesAvailable : number,
+  electricBikesAvailable : number,
+  rewardBikesAvailable : number,
+  rewardDocksAvailable : number,
+  kioskStatus : string,
+  kioskPublicStatus : string,
+  kioskConnectionStatus : string,
+  kioskType : number,
+  addressStreet : string,
+  addressCity : string,
+  addressState : string,
+  closeTime : Date,
+  eventEnd : Date,
+  eventStart : Date,
+  isEventBased : Boolean,
+  isVirtual : Boolean,
+  kioskId : number,
+  notes : string,
+  openTime : Date,
+  publicText : string,
+  timeZone : string,
+  trikesAvailable : number,
+  latitude : number,
+  longitude : number,
+  weather : string,
+  bikes : IBike[]
+}
