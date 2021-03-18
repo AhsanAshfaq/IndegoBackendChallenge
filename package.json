@@ -27,7 +27,7 @@
   "scripts": {
     "build": "tsc",
     "devStart": "nodemon dist/app.js",
-    "start": "node app.ts",
+    "start": "node dist/app.js",
     "test": "NODE_ENV=test jest ./test --testEnvironment=node --detectOpenHandles --verbose --forceExit --maxWorkers=1"
   },
   "devDependencies": {
