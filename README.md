@@ -14,11 +14,16 @@ npm install
 ```
 ###  Build project
 ```
-npm build
+npm run build
 ```
 ### run the project
 ```
-npm start
+npm run start
+```
+
+### run the tests
+```
+npm run test
 ```
 
 - Navigate to `http://localhost:8001`
