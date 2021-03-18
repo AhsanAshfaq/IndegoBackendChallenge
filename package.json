@@ -16,6 +16,8 @@
     "node-fetch": "^2.6.1",
     "node-schedule": "^2.0.0",
     "request": "^2.88.2",
+    "should": "^13.2.3",
+    "superagent": "^6.1.0",
     "supertest": "^6.1.3",
     "swagger-jsdoc": "^7.0.0-rc.6",
     "swagger-ui-express": "^4.1.6",
@@ -25,7 +27,7 @@
   "scripts": {
     "build": "tsc",
     "start": "nodemon dist/app.js",
-    "test": "NODE_ENV=test jest ./test --watch --forceExit"
+    "test": "NODE_ENV=test jest ./test --testEnvironment=node --detectOpenHandles --verbose --forceExit --maxWorkers=1"
   },
   "devDependencies": {
     "@types/cors": "^2.8.10",

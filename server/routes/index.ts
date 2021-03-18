@@ -3,7 +3,6 @@ import { getBikes, addBike } from "../services/bike.service";
 import { getBuildings, addBuilding, getBuilding } from "../services/building.service";
 import jwt from "jsonwebtoken";
 import config from "../config/config";
-import { app } from "../../app";
 //import { startJob, stopJob } from "../services/job.service";
 
 const ProtectedRoutes: Router = Router();
