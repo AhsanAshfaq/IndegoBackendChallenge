@@ -5,6 +5,7 @@ import app from "../server"
 
 // Adding login route
 export const loginRoute = (req: any, res: any) => {
+    console.log(req.path);
     const username = req.body.username;
     if (!username) res.json({ message: "Username not provided" });
 
@@ -21,12 +22,16 @@ export const loginRoute = (req: any, res: any) => {
 
 // Adding authentication for checking the JWT token
 export const authenticateToken = (req: any, res: any, next: any) => {
-    const authHeader = req.headers['authorization'];
-    const token = authHeader && authHeader.split(' ')[1];
-    if (token == null) return res.status(401).json({ message: "No Auth Token provided" });
-    jwt.verify(token, config.app.AppSecret, (err:any) => {
-        if (err) return res.status(403).json({ message: "Invalid Token" });
+    if (req.path.indexOf('docs') > 1) {
         next();
-     });
+    } else {
+        const authHeader = req.headers['authorization'];
+        const token = authHeader && authHeader.split(' ')[1];
+        if (token == null) return res.status(401).json({ message: "No Auth Token provided" });
+        jwt.verify(token, config.app.AppSecret, (err: any) => {
+            if (err) return res.status(403).json({ message: "Invalid Token" });
+            next();
+        });
+    }
 }
  
