@@ -6,6 +6,12 @@
 ```
 git clone https://github.com/AhsanAshfaq/IndegoBackendChallenge.git
 ```
+
+### Heroku URL : 
+```
+https://indegobackendchallenge.herokuapp.com/
+```
+
 ### Install dependencies
 ```
 cd IndegoBackendChallenge
