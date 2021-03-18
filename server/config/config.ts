@@ -5,7 +5,7 @@ const config = {
     jobInterval: "@hourly",
     weatherApiUrl: "http://api.openweathermap.org/data/2.5/weather?q=Philadelphia&appid=56de7c0e3a44ebf0fed3c7797e5794e7",
     AppSecret: "thisismysecret",
-    username: "ahsan",
+    username: "afia",
     password: "admin"
   },
   db: {
