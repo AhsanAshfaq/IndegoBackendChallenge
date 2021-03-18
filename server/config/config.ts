@@ -1,6 +1,6 @@
 const config = {
   app: {
-    port: process.env.NODE_ENV == "test" ? "8004" : "8001",
+    port: process.env.NODE_ENV == "test" ? "8004" : process.env.PORT ? process.env.PORT : "8001",
     bikeServiceUrl: "https://kiosks.bicycletransit.workers.dev/phl",
     jobInterval: "@hourly",
     weatherApiUrl: "http://api.openweathermap.org/data/2.5/weather?q=Philadelphia&appid=56de7c0e3a44ebf0fed3c7797e5794e7",
